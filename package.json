@@ -1,6 +1,6 @@
 {
   "name": "find-external-interface",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Find the name of a network interface bound to an external (non-localhost) IP address",
   "main": "index.js",
   "repository": {
