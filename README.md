@@ -8,14 +8,13 @@ This module exports a single function, [findExternalInterface](#findExternalInte
 
 ### findExternalInterface
 
-Find the name of a network interface bound to an external (non-localhost) IP
-address or `null` if none found.  This function returns the name of the first
-interface which satisfies the criteria.
+Find the name of a network interface bound to an external (non-localhost) IP address or `null` if none found.  This function returns the name of the first interface which satisfies the criteria.
 
 **Parameters**
 
 -   `options` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)?** Options
     -   `options.IPv6` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?** If true, find IPv6 interface (optional, default `false`)
+    -   `options.name` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** If set, only check interface w/ this name for external address
 
 **Examples**
 
