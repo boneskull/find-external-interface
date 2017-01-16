@@ -3,12 +3,23 @@
   "version": "0.1.0",
   "description": "Find the name of a network interface bound to an external (non-localhost) IP address",
   "main": "index.js",
-  "scripts": {
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boneskull/find-external-interface.git"
   },
-  "keywords": [],
+  "keywords": [
+    "ip",
+    "network",
+    "ipv4",
+    "ipv6",
+    "interface",
+    "address",
+    "lan"
+  ],
   "author": "Christopher Hiller <boneskull@boneskull.com> (https://boneskull.com/)",
   "license": "MIT",
-  "engines": {
-    "node": ">=4.0.0"
-  }
+  "bugs": {
+    "url": "https://github.com/boneskull/find-external-interface/issues"
+  },
+  "homepage": "https://github.com/boneskull/find-external-interface#readme"
 }
