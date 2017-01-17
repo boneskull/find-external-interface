@@ -1,5 +1,5 @@
 # find-external-interface
-
+[![Build Status](https://travis-ci.org/boneskull/find-external-interface.svg?branch=master)](https://travis-ci.org/boneskull/find-external-interface) [![Dependency Status](https://dependencyci.com/github/boneskull/find-external-interface/badge)](https://dependencyci.com/github/boneskull/find-external-interface) [![Coverage Status](https://coveralls.io/repos/github/boneskull/find-external-interface/badge.svg?branch=master)](https://coveralls.io/github/boneskull/find-external-interface?branch=master)
 > Find the name of a network interface bound to an external (non-localhost) IP address 
 
 ## Usage
