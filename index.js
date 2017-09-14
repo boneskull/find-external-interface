@@ -34,7 +34,7 @@ exports.findExternalInterface = function findExternalInterface (options) {
   var name = options.name;
 
   if (name) {
-    return findInAddresses(networkInterfaces[name]) ? name : null;
+    return (networkInterfaces[name]) ? (findInAddresses(networkInterfaces[name]) ? name : null) : null;
   }
 
   return Object.keys(networkInterfaces)

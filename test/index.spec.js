@@ -82,6 +82,19 @@ describe('findExternalInterface()', function () {
         expect(findExternalInterface({name: 'en14'})).to.be.null;
       });
     });
+    
+    describe('and there is no matching interface', function () {
+      beforeEach(function () {
+        var interfaces = Object.assign({}, allInterfaces);
+        interfaces.en14 = interfaces.en13;
+        sandbox.stub(os, 'networkInterfaces')
+          .returns(interfaces);
+      });
+
+      it('should return null', function () {
+        expect(findExternalInterface({name: 'en15'})).to.be.null;
+      });
+    });
   });
 
   describe('when "name" option is an empty string', function () {
