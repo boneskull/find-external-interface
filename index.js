@@ -5,7 +5,7 @@
  * @module find-external-interface
  */
 
-var os = require('os');
+const os = require('os');
 
 /**
  * Find the name of a network interface bound to an external (non-localhost) IP
@@ -22,30 +22,35 @@ var os = require('os');
  * const name = findExternalInterface(); // 'eth0'
  * const info = require('os').networkInterfaces(name); // ip address, etc.
  */
-exports.findExternalInterface = function findExternalInterface (options) {
-  function findInAddresses (addresses) {
-    return addresses.reduce((externalAddress, address) => externalAddress ||
-    (!address.internal && address.family === family && address), null);
-  }
-
-  options = options || {};
-  var family = options.IPv6 ? 'IPv6' : 'IPv4';
-  var networkInterfaces = os.networkInterfaces();
-  var name = options.name;
+exports.findExternalInterface = function findExternalInterface(options = {}) {
+  const findInAddresses = addresses =>
+    addresses.reduce(
+      (externalAddress, address) =>
+        externalAddress ||
+        (!address.internal && address.family === family && address),
+      null
+    );
+  const family = options.IPv6 ? 'IPv6' : 'IPv4';
+  const networkInterfaces = os.networkInterfaces();
+  const name = options.name;
 
   if (name) {
-    return (networkInterfaces[name]) ? (findInAddresses(networkInterfaces[name]) ? name : null) : null;
+    return networkInterfaces[name]
+      ? findInAddresses(networkInterfaces[name])
+        ? name
+        : null
+      : null;
   }
 
-  return Object.keys(networkInterfaces)
-    .reduce((externalInterface, interfaceName) => {
-      if (externalInterface) {
-        return externalInterface;
-      }
-
-      return findInAddresses(networkInterfaces[interfaceName], {
+  return Object.keys(networkInterfaces).reduce(
+    (externalInterface, interfaceName) =>
+      externalInterface ||
+      (findInAddresses(networkInterfaces[interfaceName], {
         internal: false,
-        family: family
-      }) ? interfaceName : null;
-    }, null);
-}
+        family
+      })
+        ? interfaceName
+        : null),
+    null
+  );
+};

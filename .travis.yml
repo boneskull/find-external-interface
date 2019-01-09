@@ -1,15 +1,14 @@
-dist: trusty
-sudo: false
 language: node_js
 node_js:
-- '7'
-- '6'
-- '4'
+  - '11'
+  - '10'
+  - '8'
+  - '6'
+install: npm ci
 script: nyc npm test
 after_script: nyc report --reporter=text-lcov | node_modules/.bin/coveralls
-env:
-  global:
-    secure: "OG0aJvBTeyhq52kS0zBwfyUN9dag4JLVBNLk02W8P9zavlN3j7+bkQu5fKfjfcByhDOB1EwUkcQfQr+nyZx+35bEfL+Qph0jGlNsr86D0a+5/4UBBsCCK8WoFBjveXByp7Fjrnl0yu0XZgg9IqVgqogvJvWvev3L+kWZKvgrOPrS7M/R0ljIBdphb01df8ANHJ4XTY816JlcHsTkP8eAbFuE57Q6yotl0Kh1o7OaKtQ1NszeQRj76nEyrZ9Fw7jjtVHcKSl4InrXNrD3IQeKzqdv257Cz1c5pLbwvHy7ppXoNYi/FRH/GSgcUmKnmp8E2Vaa1iAgLYSCGWWqdghE3rVJzJj3MpC5nXqfw3myW9ZQxAnVyxb83ypskn0PpDeVzYUk0ZNJedlia/42LqP7nB7fJ0WQp39+ELp39OaisJk8i0RGAwRgDnoztLoHRIHW7AUbgXjfxt1aBoPb0bhEYPB/S3Tb5EmxYuJ0ySvemkG3IY8w87D/C/d6bZmJxDSEp+8+PltVdBGqZifubxmJt+x+xynFK4n9njv9Go3mrZRBS/+wKwbaVcVbnajThpgxGRJuDGZrMRS4FBO/9moggBG3AZ0Igd04ju8vWUtFZjDaSRQ1hDfG0NE2Csf5mdQEen7eP5l5nzeBIlozYAHXBTYaxpwrY5dPgIG1xx87wvE="
+notifications:
+  email: false
 cache:
   directories:
-    - node_modules
+    - ~/.npm
